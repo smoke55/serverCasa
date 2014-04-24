@@ -13,11 +13,13 @@
 		<junit.version>4.11</junit.version>
 		<jdk.version>1.7</jdk.version>
 		<servlet.version>2.5</servlet.version>
+		<log4j.version>1.2.17</log4j.version>
+		<ssh.version>0.1.51</ssh.version>
 	</properties>
 
 	<dependencies>
 
-		<!-- Spring 3 dependencies -->
+		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -36,6 +38,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- Junit for Tests -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -43,14 +46,29 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Servlet API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet.version}</version>
 		</dependency>
+		
+		<!-- Ssh library -->
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>${ssh.version}</version>
+		</dependency>
+		
+		<!-- Loggin library -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<finalName>ServerCASA</finalName>
 		<plugins>
@@ -65,5 +83,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>
