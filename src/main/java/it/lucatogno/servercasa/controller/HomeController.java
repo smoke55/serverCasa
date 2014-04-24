@@ -2,7 +2,6 @@ package it.lucatogno.servercasa.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,7 +14,6 @@ public class HomeController {
  
 		model.addAttribute("message", "BENVENUTO");
  
-		//Spring uses InternalResourceViewResolver and return back index.jsp
 		return "index";
  
 	}
