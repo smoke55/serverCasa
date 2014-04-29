@@ -1,5 +1,9 @@
 package it.lucatogno.servercasa.controller;
 
+import java.util.Date;
+
+import it.lucatogno.servercasa.messagistica.ArduinoMex;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +19,18 @@ public class HomeController {
 		model.addAttribute("message", "BENVENUTO");
  
 		return "index";
- 
 	}
+	
+	@RequestMapping(value="/homepage", method = RequestMethod.GET)
+	public String sendMexPage(ModelMap model) {
+		ArduinoMex arduinoMex = new ArduinoMex();
+		arduinoMex.setAuthor(System.getProperty("username"));
+		arduinoMex.setCommand("mex");
+		arduinoMex.setData(new Date());
+		model.addAttribute("mex", arduinoMex);
+ 
+		return "sendMex";
+	}
+
 
 }

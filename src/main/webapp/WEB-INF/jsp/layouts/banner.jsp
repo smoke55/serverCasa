@@ -1,3 +1,3 @@
 <jsp:body>
-<h2>SERVER</h2>
+<h2>BANNER</h2>
 </jsp:body>
