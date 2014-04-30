@@ -13,24 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
 	
-	@RequestMapping(value="/homepage", method = RequestMethod.GET)
+	@RequestMapping(value="/index.html", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
  
 		model.addAttribute("message", "BENVENUTO");
- 
 		return "index";
 	}
-	
-	@RequestMapping(value="/homepage", method = RequestMethod.GET)
-	public String sendMexPage(ModelMap model) {
-		ArduinoMex arduinoMex = new ArduinoMex();
-		arduinoMex.setAuthor(System.getProperty("username"));
-		arduinoMex.setCommand("mex");
-		arduinoMex.setData(new Date());
-		model.addAttribute("mex", arduinoMex);
- 
-		return "sendMex";
-	}
-
 
 }

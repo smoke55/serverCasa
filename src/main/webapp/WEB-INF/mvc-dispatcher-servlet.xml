@@ -6,9 +6,32 @@
         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
- 
-	<context:component-scan base-package="it.lucatogno.controller" />
-	
+
+	<import resource="classpath:spring-beans.xml" />
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:messages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang" />
+	</bean>
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="it" />
+	</bean>
+
+	<bean id="handlerMapping"
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<ref bean="localeChangeInterceptor" />
+		</property>
+	</bean>
+
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -18,5 +41,5 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
- 
+
 </beans>
