@@ -1,21 +1,3 @@
-<jsp:root>
-<div id="header-wrapper">
-  <div id="header" class="container">
-    <div id="logo">
-      <h1><a href="#">SERVER</a></h1>
-</div>
-    <div id="menu">
-      <ul>
-        <li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
-        <li><a href="#" accesskey="2" title="">Our Clients</a></li>
-        <li><a href="#" accesskey="3" title="">About Us</a></li>
-        <li><a href="#" accesskey="4" title="">Careers</a></li>
-        <li><a href="#" accesskey="5" title="">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <div id="wrapper">
   <div id="featured-wrapper">
     <div id="featured" class="container">
@@ -82,7 +64,3 @@
     <a href="#" class="button">Etiam posuere</a> </div>
 </div>
 
-<div id="copyright" class="container">
-  <p>Copyright (c) 2014 Sitename.com. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
-</div>
-</jsp:root>
