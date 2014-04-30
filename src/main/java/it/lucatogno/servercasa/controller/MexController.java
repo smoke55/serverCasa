@@ -20,7 +20,7 @@ public class MexController {
 		arduinoMex.setCommand("mex");
 		arduinoMex.setData(new Date());
 		model.addAttribute("mex", arduinoMex);
- 
+		
 		return "sendMex";
 	}
 

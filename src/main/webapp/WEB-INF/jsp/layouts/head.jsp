@@ -6,6 +6,7 @@
 <!-- BootStrap CSS -->
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../css/default.css">
 
 <title>${title eq null ? "SERVER" : "title" }</title>
 </jsp:body>
