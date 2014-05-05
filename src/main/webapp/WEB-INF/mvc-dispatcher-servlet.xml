@@ -8,6 +8,8 @@
 
 	<mvc:annotation-driven />
 	<import resource="spring-beans.xml" />
+	
+	<mvc:resources mapping="/**" location="/resources/" />
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

@@ -9,4 +9,6 @@
  <context:component-scan base-package="it.lucatogno.servercasa" />
  
  <context:property-placeholder location="classpath:enviroment.properties" />
+ 
+ 
 </beans>

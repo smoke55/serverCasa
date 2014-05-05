@@ -19,6 +19,8 @@
 		<slf4j.version>1.7.7</slf4j.version>
 		<jstl.version>1.2</jstl.version>
 		<jsp.version>2.2</jsp.version>
+		<jackson.mapper.version>1.9.13</jackson.mapper.version>
+		<jackson.annotation.version>2.3.3</jackson.annotation.version>
 	</properties>
 
 	<dependencies>
@@ -101,6 +103,19 @@
 			<artifactId>tiles-jsp</artifactId>
 			<version>${tiles.version}</version>
 		</dependency>
+
+		<!-- JSON Library -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.mapper.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.annotation.version}</version>
+		</dependency>
+
 
 	</dependencies>
 

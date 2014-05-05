@@ -949,3 +949,22 @@ ul.contact li a.icon-rss:before
 {
 	float: right;
 }
+label{
+	width:100px;
+	height: 30px;
+}
+
+.f_dx{
+	float: right;
+}
+
+.f_sx{
+	float: left;
+}
+.submit{
+	margin-top:100px;
+	margin-right:50px;
+}
+.centrata{
+	margin-left: 200px;
+}
