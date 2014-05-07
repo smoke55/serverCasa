@@ -45,4 +45,13 @@ public class ArduinoMexQueue {
 		return toReturn;
 	}
 	
+	public void deleteMex(ArduinoMex mex){
+		queue.remove(mex);
+	}
+	
+	public void updateMex(ArduinoMex mex) throws InterruptedException{
+		deleteMex(mex);
+		queue(mex);
+	}
+	
 }

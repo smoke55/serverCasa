@@ -3,14 +3,8 @@ package it.lucatogno.servercasa.messagistica;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.codehaus.jackson.map.annotate.JacksonStdImpl;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class ArduinoMex implements Serializable {
 
@@ -55,6 +49,7 @@ public class ArduinoMex implements Serializable {
 		this.author = author;
 	}
 
+	@JsonDeserialize(using=DateDeserializer.class)
 	public Date getData() {
 		return data;
 	}

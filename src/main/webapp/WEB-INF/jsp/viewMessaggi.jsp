@@ -3,13 +3,68 @@
 
 <div id="wrapper">
 	<a href="messaggiView/sendMex" class="button">Invia nuovo</a>
-	<c:forEach var="mex" items="${mexList}">
-		<div id="extra" class="container">
-			<h2>TO: ${mex.destinatario }</h2>
-			<span>${mex.author } - ${mex.data}</span>
-			<p>${mex.content}</p>
-			<a href="#" class="button">Modifica</a> <a href="#" class="button">Cancella</a>
-		</div>
-	</c:forEach>
 </div>
+
+<c:url var="url" value="./messaggi" />
+<script>
+	$(document)
+			.ready(
+					function() {
+						$
+								.ajax({
+									url : "${url}",
+									contentType : 'application/json',
+									success : function(data) {
+										$
+												.each(
+														data,
+														function(idx, elem) {
+															var linko = "messaggi?id="
+																	+ elem.id;
+															$('div#wrapper')
+																	.append(
+																			"<div id='extra' class='container'><h2>to:"
+																					+ elem.destinatario
+																					+ "</h2><span>"
+																					+ elem.author
+																					+ " - "
+																					+ elem.data
+																					+ "</span>"
+																					+ "<p>"
+																					+ elem.content
+																					+ "</p>"
+																					+ "<a href='messaggiView/modificaMex?idMex="
+																					+ elem.id
+																					+ "' class='button'>Modifica</a> "
+																					+ "<a href="
+																					+ "\"javascript:cancellaMex('"+ linko + "')\""
+																					+ "class='button'>Cancella</a></div>");
+														});
+									},
+									error : function(jqXHR, textStatus,
+											errorThrown) {
+										alert('An error has occured!2 :-('
+												+ jqXHR + textStatus
+												+ errorThrown);
+									}
+								});
+					});
+
+	function cancellaMex(url) {
+		$.ajax({
+			url : url,
+			type : 'DELETE',
+			data : JSON.stringify($(this).serializeArray()),
+			contentType : 'application/json',
+			success : function(data) {
+				alert(data);
+				location.reload();
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert('An error has occured!! :-(' + jqXHR + textStatus
+						+ errorThrown);
+			}
+		});
+	}
+</script>
 
