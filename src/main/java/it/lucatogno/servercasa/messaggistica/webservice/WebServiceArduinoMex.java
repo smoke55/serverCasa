@@ -32,9 +32,8 @@ public class WebServiceArduinoMex {
 	private Logger logger = Logger.getLogger(getClass());
 
 	@RequestMapping(method = RequestMethod.POST, consumes = {"application/json"})
-	@ResponseStatus(value = HttpStatus.CREATED)
 	public @ResponseBody
-	String scriviArduinoMex(@RequestBody ArduinoMex mex) {
+	HttpStatus scriviArduinoMex(@RequestBody ArduinoMex mex) {
 		try {
 			logger.debug("sto creando " + mex);
 			if (mex.getData() == null) {
@@ -42,10 +41,10 @@ public class WebServiceArduinoMex {
 			}
 			manager.setMex(mex);
 			logger.info("creato messaggio id->" + mex.getId());
-			return "OK";
+			return HttpStatus.OK;
 		} catch (InterruptedException e) {
 			logger.error("eccezione sul web service");
-			return "ERROR";
+			return HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 	}
 
@@ -65,21 +64,22 @@ public class WebServiceArduinoMex {
 	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public @ResponseBody
-	String aggiornaArduinoMex(@RequestBody ArduinoMex mex) throws InterruptedException {
+	HttpStatus aggiornaArduinoMex(@RequestBody ArduinoMex mex)
+			throws InterruptedException {
 		if (mex != null && mex.getId() != null) {
 			manager.updateMex(mex);
-			return "OK";
-		}else{
-			return "ERROR";
+			return HttpStatus.OK;
+		} else {
+			return HttpStatus.NOT_MODIFIED;
 		}
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE)
 	public @ResponseBody
-	String cancellaArduinoMex(
+	HttpStatus cancellaArduinoMex(
 			@RequestParam(value = "id", required = true) Long id) {
 		manager.deleteMex(id);
-		return "OK";
+		return HttpStatus.OK;
 	}
 
 }

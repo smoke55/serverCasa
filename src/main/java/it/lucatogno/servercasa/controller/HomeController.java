@@ -20,23 +20,23 @@ public class HomeController {
 		
 	@RequestMapping(value="/index.html", method = RequestMethod.GET)
 	public String welcome(ModelMap model) throws InterruptedException {
-		inserisciMexFittizi();
+//		inserisciMexFittizi();
 		return "index";
 	}
 	
-	private void inserisciMexFittizi() throws InterruptedException{
-		int nMex= 1;
-		for(Integer i = 0 ; i< nMex ; i++ ){
-			ArduinoMex mex = new ArduinoMex();
-			mex.setAuthor("Autore" + i);
-			mex.setCommand("mex");
-			mex.setData(new Date());
-			mex.setContent(i+ " mex prova "+i);
-			mex.setDestinatario("dest "+i);
-			mex.setId(i.longValue());
-			arduinoMexManager.setMex(mex);
-		}
-		
-	}
+//	private void inserisciMexFittizi() throws InterruptedException{
+//		int nMex= 1;
+//		for(Integer i = 0 ; i< nMex ; i++ ){
+//			ArduinoMex mex = new ArduinoMex();
+//			mex.setAuthor("Autore" + i);
+//			mex.setCommand("mex");
+//			mex.setData(new Date());
+//			mex.setContent(i+ " mex prova "+i);
+//			mex.setDestinatario("dest "+i);
+//			mex.setId(i.longValue());
+//			arduinoMexManager.setMex(mex);
+//		}
+//		
+//	}
 
 }

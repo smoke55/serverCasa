@@ -60,7 +60,7 @@
 					location.reload();
 				}
 				if (newLocation != null && newLocation != "") {
-					location.redirect(newLocation);
+					location.href=newLocation;
 				}
 			});
 		} else {

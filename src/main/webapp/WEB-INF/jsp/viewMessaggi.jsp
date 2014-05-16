@@ -8,48 +8,46 @@
 <c:url var="url" value="./messaggi" />
 
 <script>
-	$(document)
-			.ready(
-					function() {
-						$
-								.ajax({
-									url : "${url}",
-									contentType : 'application/json',
-									success : function(data) {
-										$
-												.each(
-														data,
-														function(idx, elem) {
-															var linko = "messaggi?id="
-																	+ elem.id;
-															$('div#wrapper')
-																	.append(
-																			"<div id='extra' class='container'><h2>to:"
-																					+ elem.destinatario
-																					+ "</h2><span>"
-																					+ elem.author
-																					+ " - "
-																					+ elem.data
-																					+ "</span>"
-																					+ "<p>"
-																					+ elem.content
-																					+ "</p>"
-																					+ "<a href='messaggiView/modificaMex?idMex="
-																					+ elem.id
-																					+ "' class='button'>Modifica</a> "
-																					+ "<a href="
-																					+ "\"javascript:cancellaMex('"+ linko + "')\""
-																					+ "class='button'>Cancella</a></div>");
-														});
-									},
-									error : function(jqXHR, textStatus,
-											errorThrown) {
-										alert('An error has occured!2 :-('
-												+ jqXHR + textStatus
-												+ errorThrown);
-									}
-								});
-					});
+$(document).ready(
+function() {
+	$.ajax({
+		url : "${url}",
+		contentType : 'application/json',
+		success : function(data) {
+			$.each(
+				data,
+				function(idx, elem) {
+					var linko = "messaggi?id="
+							+ elem.id;
+					$('div#wrapper')
+							.append(
+									"<div id='extra' class='container'><h2>to:"
+											+ elem.destinatario
+											+ "</h2><span>"
+											+ elem.author
+											+ " - "
+											+ elem.data
+											+ "</span>"
+											+ "<p>"
+											+ elem.content
+											+ "</p>"
+											+ "<a href='messaggiView/modificaMex?idMex="
+											+ elem.id
+											+ "' class='button'>Modifica</a> "
+											+ "<a href="
+											+ "\"javascript:cancellaMex('"
+											+ linko
+											+ "')\""
+											+ "class='button'>Cancella</a></div>");
+				});
+		},
+		error : function(jqXHR, textStatus,
+				errorThrown) {
+			messaggioDanger = errorThrown;
+			aggiornaMessaggi(false, null);
+		}
+			});
+});
 
 	function cancellaMex(url) {
 		$.ajax({
@@ -59,11 +57,11 @@
 			contentType : 'application/json',
 			success : function(data) {
 				messaggioSuccesso = "Messaggio eliminato con successo";
-				aggiornaMessaggi(true,null);
+				aggiornaMessaggi(true, null);
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
-				messaggioSuccesso = "Messaggio non eliminato, errore";
-				aggiornaMessaggi(true,null);
+				messaggioDanger = "Messaggio non eliminato, errore";
+				aggiornaMessaggi(true, null);
 			}
 		});
 	}
