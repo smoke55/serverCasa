@@ -1,6 +1,6 @@
 package it.lucatogno.servercasa.controller;
 
-import it.lucatogno.servercasa.messagistica.ArduinoMex;
+import it.lucatogno.servercasa.messaggistica.ArduinoMex;
 
 import java.net.URI;
 import java.util.ArrayList;

@@ -2,8 +2,8 @@ package it.lucatogno.servercasa.controller;
 
 import java.util.Date;
 
-import it.lucatogno.servercasa.messagistica.ArduinoMex;
-import it.lucatogno.servercasa.messagistica.ArduinoMexManager;
+import it.lucatogno.servercasa.messaggistica.ArduinoMex;
+import it.lucatogno.servercasa.messaggistica.ArduinoMexManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

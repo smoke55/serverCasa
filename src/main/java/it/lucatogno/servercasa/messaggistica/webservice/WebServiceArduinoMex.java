@@ -1,7 +1,7 @@
-package it.lucatogno.servercasa.messagistica.webservice;
+package it.lucatogno.servercasa.messaggistica.webservice;
 
-import it.lucatogno.servercasa.messagistica.ArduinoMex;
-import it.lucatogno.servercasa.messagistica.ArduinoMexManager;
+import it.lucatogno.servercasa.messaggistica.ArduinoMex;
+import it.lucatogno.servercasa.messaggistica.ArduinoMexManager;
 
 import java.util.Date;
 import java.util.List;

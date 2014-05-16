@@ -1,4 +1,4 @@
-package it.lucatogno.servercasa.messagistica;
+package it.lucatogno.servercasa.messaggistica;
 
 import java.io.IOException;
 import java.text.ParseException;

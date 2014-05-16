@@ -961,10 +961,13 @@ label{
 .f_sx{
 	float: left;
 }
+
 .submit{
-	margin-top:100px;
-	margin-right:50px;
+	margin-top:50px;
+	margin-right:250px;
 }
-.centrata{
-	margin-left: 200px;
+.ottantaPerCento{
+	margin-top: 20px;
+	margin-left: 10%;
+	width : 80%;
 }

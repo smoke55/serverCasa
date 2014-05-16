@@ -6,6 +6,7 @@
 </div>
 
 <c:url var="url" value="./messaggi" />
+
 <script>
 	$(document)
 			.ready(
@@ -57,12 +58,12 @@
 			data : JSON.stringify($(this).serializeArray()),
 			contentType : 'application/json',
 			success : function(data) {
-				alert(data);
-				location.reload();
+				messaggioSuccesso = "Messaggio eliminato con successo";
+				aggiornaMessaggi(true,null);
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
-				alert('An error has occured!! :-(' + jqXHR + textStatus
-						+ errorThrown);
+				messaggioSuccesso = "Messaggio non eliminato, errore";
+				aggiornaMessaggi(true,null);
 			}
 		});
 	}

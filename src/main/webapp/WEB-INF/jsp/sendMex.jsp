@@ -7,39 +7,36 @@
 
 <c:url value="../messaggi" var="url"></c:url>
 
-<div class="wrapper">
-	<div class="extra">
-		<form:form id="formID" method="POST" modelAttribute="mex"
+<form:form id="formID" method="POST" modelAttribute="mex"
 			action="${url}">
 
 			<form:hidden path="id" />
 			<form:hidden path="command" />
 			<form:hidden path="data" />
-			<div class="f_sx centrata">
-				<div>
-					<form:label path="destinatario">Destinatario</form:label>
-					<form:input path="destinatario" />
+			<div class="f_sx ottantaPerCento">
+				
+				<div class="input-group">
+				  <span class="input-group-addon">TO</span>
+				  <form:input  id="idDestinatario" path="destinatario" type="text" class="form-control" placeholder="destinatario" />
 				</div>
-				<div>
-					<form:label path="author">Mittente</form:label>
-					<form:input path="author" />
+				<div class="input-group">
+				  <span class="input-group-addon">FROM</span>
+				  <form:input id="idAutore" path="author" type="text" class="form-control" placeholder="mittente" />
 				</div>
+				<div><!-- --><br /><br /></div>
 				<div>
-					<form:label path="content">Messaggio</form:label>
-					<form:textarea rows="5" cols="50" id="txtAreaContent"
+				<form:label path="content">MESSAGE</form:label>
+				<form:textarea placeholder="message" rows="5" cols="50" class="form-control" id="txtAreaContent"
 						path="content"></form:textarea>
 				</div>
 			</div>
 			<div class="f_dx submit">
-				<input type="submit" class="button" value="Manda messaggio" />
+				<input type="submit" class="button" value="Send Message" />
 			</div>
 
 		</form:form>
-	</div>
-	
-</div>
-<div style="clear: both;">
-</div>
+
+<div style="clear: both;"><!--  --></div>
 
 <script>
 $('#formID').submit(function(event) {
@@ -51,10 +48,12 @@ $('#formID').submit(function(event) {
 		dataType : "json",
 		contentType : "application/json; charset=utf-8",
 		success : function(data) {
-			alert('OK');
+			messaggioSuccesso = "Messaggio inviato con successo";
+			aggiornaMessaggi(false,"./");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-			alert(textStatus + " ->\n" + errorThrown);
+			messaggioDanger = "Errore nell'invio del messaggio";
+			aggiornaMessaggi(false,null);
 		}
 	});
 	return false;

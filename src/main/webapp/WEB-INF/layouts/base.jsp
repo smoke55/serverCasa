@@ -10,6 +10,8 @@
 <body>
 
 	<tiles:insertAttribute name="header" />
+	
+	<tiles:insertAttribute name="messaggi" />
 
 	<tiles:insertAttribute name="body" />
 

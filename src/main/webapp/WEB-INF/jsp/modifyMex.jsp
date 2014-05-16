@@ -15,23 +15,25 @@
 			<form:hidden id="idIdField" path="id" />
 			<form:hidden id="idCommand" path="command" />
 			<form:hidden id="idData" path="data" />
-			<div class="f_sx centrata">
-				<div>
-					<form:label path="destinatario">Destinatario</form:label>
-					<form:input id="idDestinatario" path="destinatario" />
+			<div class="f_sx ottantaPerCento">
+				
+				<div class="input-group">
+				  <span class="input-group-addon">TO</span>
+				  <form:input  id="idDestinatario" path="destinatario" type="text" class="form-control" placeholder="destinatario" />
 				</div>
-				<div>
-					<form:label path="author">Mittente</form:label>
-					<form:input id="idAutore" path="author" />
+				<div class="input-group">
+				  <span class="input-group-addon">FROM</span>
+				  <form:input id="idAutore" path="author" type="text" class="form-control" placeholder="mittente" />
 				</div>
+				<div><!-- --><br /><br /></div>
 				<div>
-					<form:label path="content">Messaggio</form:label>
-					<form:textarea rows="5" cols="50" id="txtAreaContent"
+				<form:label path="content">MESSAGE</form:label>
+				<form:textarea placeholder="message" rows="5" cols="50" class="form-control" id="txtAreaContent"
 						path="content"></form:textarea>
 				</div>
 			</div>
 			<div class="f_dx submit">
-				<input type="submit" class="button" value="Manda messaggio" />
+				<input type="submit" class="button" value="Send Message" />
 			</div>
 		</form:form>
 	</div>
@@ -56,8 +58,8 @@
 						$("#idCommand").val(data.command);
 					},
 					error : function(jqXHR, textStatus, errorThrown) {
-						alert(':-( \n' + jqXHR + "\n" + textStatus + "\n"
-								+ errorThrown);
+						messaggioDanger = "Problema di comunicazione con il server";
+						aggiornaMessaggi(false,null);
 					}
 				});
 			});
@@ -70,13 +72,13 @@
 			data : JSON.stringify(serializeForm($(this))),
 			dataType : "json",
 			contentType : "application/json; charset=utf-8",
-			success : function(data) {
-				alert("ok" + data);
-				location.href("./");
+			success : function(data, textStatus) {
+				messaggioSuccesso = "Messaggio modificato con successo";
+				aggiornaMessaggi(false,"./");
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
-				alert(data +"\n" + textStatus + " ->\n" + errorThrown);
-				location.href("./");
+				messaggioDanger = "Errore nella modifica del messaggio";
+				aggiornaMessaggi(false,null);
 			}
 		});
 		
