@@ -14,7 +14,7 @@
 		<jdk.version>1.7</jdk.version>
 		<servlet.version>2.5</servlet.version>
 		<log4j.version>1.2.17</log4j.version>
-		<ssh.version>0.1.51</ssh.version>
+		<ssh.version>0.9.0</ssh.version>
 		<tiles.version>3.0.3</tiles.version>
 		<slf4j.version>1.5.6</slf4j.version>
 		<jstl.version>1.2</jstl.version>
@@ -76,10 +76,11 @@
 
 		<!-- Ssh library -->
 		<dependency>
-			<groupId>com.jcraft</groupId>
-			<artifactId>jsch</artifactId>
-			<version>${ssh.version}</version>
+			<groupId>net.schmizz</groupId>
+			<artifactId>sshj</artifactId>
+			<version>0.9.0</version>
 		</dependency>
+
 
 		<!-- Loggin library -->
 		<dependency>
@@ -88,10 +89,10 @@
 			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>${slf4j.version}</version>
-    </dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
